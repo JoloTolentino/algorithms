@@ -29,5 +29,5 @@ class Solution:
             for x in range(col):
                 if grid2[y][x] == 1 and dfs(y,x): 
                     count+=1
-        print(grid2)
+        
         return count

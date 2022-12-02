@@ -1,17 +1,26 @@
-class Solution(object):
+class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
-        rows = len(grid)
-        cols = len(grid[0])
-        if grid[0][0] == 1:
-            return -1
-        q = [(0, 0, 1)]
-        while len(q) > 0:
-            x, y, d = q.pop(0)
-            if x == rows-1 and y == cols-1:
-                return d
-            for a, b in ((x-1, y-1), (x+1, y+1), (x-1, y), (x+1, y), (x, y-1), (x, y+1), (x-1, y+1), (x+1, y-1)):
-                if 0 <= a < rows and 0 <= b < cols and grid[a][b] == 0:
-                    grid[a][b] = 1
-                    q.append((a, b, d+1))
-
+        if grid[0][0]: return -1
+        
+        
+        row,col = len(grid),len(grid[0])    
+        q = deque()
+        q.append([0,0,1])
+        while q: 
+            node = q.popleft()
+            steps = node[2]
+            if node[0] == row-1 and node[1] == col-1:
+                return steps
+            
+            directions = ((node[0]+1,node[1]-1),(node[0]-1,node[1]+1),# r-l diagonal
+                          (node[0]+1,node[1]+1),(node[0]-1,node[1]-1),# l-r diagonal
+                          (node[0]+1,node[1])  ,(node[0], node[1]+1) ,# 4 connected
+                          (node[0]-1,node[1])  ,(node[0], node[1]-1))
+            
+            
+            for moves in directions: 
+                if 0<= moves[0] <row and 0<= moves[1]<col and grid[moves[0]][moves[1]] == 0:
+                    grid[moves[0]][moves[1]] = 1
+                    q.append([moves[0],moves[1],steps+1])
+        
         return -1

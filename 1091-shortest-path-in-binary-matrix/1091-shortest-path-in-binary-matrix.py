@@ -1,8 +1,7 @@
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
         if grid[0][0]: return -1
-        
-        
+       
         row,col = len(grid),len(grid[0])    
         q = deque()
         q.append([0,0,1])

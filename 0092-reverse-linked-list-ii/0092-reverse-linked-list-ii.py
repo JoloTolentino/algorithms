@@ -10,15 +10,15 @@ class Solution:
         dummy = ListNode(next =head)
         slow = fast =  dummy
         for _ in range(left):
-            prev = fast
+            slow = fast
             fast = fast.next
             
             
         tail = cur = fast
         for _ in range(left,right+1) :
             temp = cur.next
-            cur.next = prev.next
-            prev.next = cur
+            cur.next = slow.next
+            slow.next = cur
             cur = temp
         tail.next = cur
         

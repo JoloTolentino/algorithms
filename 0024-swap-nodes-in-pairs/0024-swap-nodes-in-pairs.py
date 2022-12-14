@@ -7,16 +7,16 @@ class Solution(object):
         prev,fast  = dummy, head
         while fast and fast.next:
 
+            # storing
             nxt =fast.next.next
             adj = fast.next
             
-            
+            # rearanging
             prev.next = adj
             adj.next = fast
             fast.next = nxt
             
-            
-
+            # updating
             prev =fast
             fast = nxt
 

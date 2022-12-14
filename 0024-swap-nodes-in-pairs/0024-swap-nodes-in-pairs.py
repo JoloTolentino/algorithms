@@ -9,10 +9,11 @@ class Solution(object):
 
             nxt =fast.next.next
             adj = fast.next
-
+            
+            adj.next = fast
             prev.next = adj
             fast.next = nxt
-            adj.next = fast
+            
             
 
             prev =fast

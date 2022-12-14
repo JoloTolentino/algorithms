@@ -4,19 +4,19 @@ class Solution(object):
         if not head: return None
         
         dummy = ListNode(next = head)
-        prev,current  = dummy, head
-        while current and current.next:
+        prev,fast  = dummy, head
+        while fast and fast.next:
 
-            nxt =current.next.next
-            second = current.next
+            nxt =fast.next.next
+            adj = fast.next
 
-            prev.next = second
-            current.next = nxt
-            second.next = current
+            prev.next = adj
+            fast.next = nxt
+            adj.next = fast
             
 
-            prev =current
-            current = nxt
+            prev =fast
+            fast = nxt
 
 
             

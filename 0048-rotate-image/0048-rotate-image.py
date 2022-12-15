@@ -30,8 +30,7 @@ class Solution(object):
                     (3, 2)
         '''
         for r in range(row):
-            for c in range(r):
-                print(r,c)     
+            for c in range(r):  
                 matrix[r][c],matrix[c][r]= matrix[c][r],matrix[r][c]
                 
 

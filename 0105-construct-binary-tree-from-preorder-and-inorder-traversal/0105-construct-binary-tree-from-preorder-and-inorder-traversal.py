@@ -19,7 +19,7 @@ class Solution:
             if RHS: 
                 root.right = self.buildTree(preorder,RHS)
             
-            return root
+            
         
         return root
         

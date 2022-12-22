@@ -12,7 +12,7 @@ class Solution(object):
             if temp not in result:
                 result.append(temp[:])
             
-            if index>= len(nums):
+            if index== len(nums):
                 return
             
             
